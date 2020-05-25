@@ -15,6 +15,7 @@ package co.edu.uniandes.csw.mueblesdelosalpes.persistencia.mock;
 
 import co.edu.uniandes.csw.mueblesdelosalpes.dto.ExperienciaVendedor;
 import co.edu.uniandes.csw.mueblesdelosalpes.dto.Mueble;
+import co.edu.uniandes.csw.mueblesdelosalpes.dto.Oferta;
 import co.edu.uniandes.csw.mueblesdelosalpes.dto.RegistroVenta;
 import co.edu.uniandes.csw.mueblesdelosalpes.dto.TipoMueble;
 import co.edu.uniandes.csw.mueblesdelosalpes.dto.TipoUsuario;
@@ -34,7 +35,7 @@ import javax.ejb.Stateless;
  * Implementación de los servicios de persistencia
  * @author Juan Sebastián Urrego
  */
-
+@Stateless
 public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote, IServicioPersistenciaMockLocal {
 
     //-----------------------------------------------------------
@@ -60,7 +61,11 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
      * Lista con los registros de ventas
      */
     private static ArrayList<RegistroVenta> registrosVentas;
-
+    /**
+     * Lista con los registros de ventas
+     */
+    private static ArrayList<Oferta> registroOfertas;
+    
     //-----------------------------------------------------------
     // Constructor
     //-----------------------------------------------------------
@@ -117,9 +122,16 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
                 venta.setProducto(muebles.get(e));
                 venta.setFechaVenta(new Date(r.nextInt()));
                 venta.setCiudad("Bogotá");
+            
+             registroOfertas = new ArrayList<Oferta>();
+             
+             registroOfertas.add(new Oferta(3,"client",30,5000));
+                
             }
         }
     }
+
+
 
     //-----------------------------------------------------------
     // Métodos
@@ -164,6 +176,12 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         else if (obj instanceof RegistroVenta)
         {
             registrosVentas.add((RegistroVenta) obj);
+        }
+        else if (obj instanceof Oferta)
+        {
+            
+        registroOfertas.add((Oferta) obj);
+        
         }
     }
 
@@ -309,6 +327,10 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         else if (c.equals(RegistroVenta.class))
         {
             return registrosVentas;
+        } 
+        else if(c.equals(Oferta.class))
+        {
+             return registroOfertas;
         } 
         else
         {

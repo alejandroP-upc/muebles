@@ -20,7 +20,7 @@ import javax.ejb.Local;
  * Contrato funcional de los servicios de persistencia de manera local.
  * @author Juan Sebastián Urrego
  */
-
+@Local
 public interface IServicioPersistenciaMockLocal
 {
 

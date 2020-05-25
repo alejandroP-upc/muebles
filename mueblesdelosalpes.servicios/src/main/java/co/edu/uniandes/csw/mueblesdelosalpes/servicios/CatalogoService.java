@@ -39,7 +39,9 @@ public class CatalogoService {
      */
     @GET
     @Path("muebles/")
-    public List<Mueble> getTodosLosMuebles() {
+    public List<Mueble> getTodosLosMuebles() 
+    {
+        
         return catalogoEjb.darMuebles();
  
     }
