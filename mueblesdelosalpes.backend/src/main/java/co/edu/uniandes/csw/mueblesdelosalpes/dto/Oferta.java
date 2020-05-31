@@ -13,7 +13,7 @@ public class Oferta
 {
     
     private int idOferta;
-    private String ofertante;
+    private String loginUsuarioOfertante;
     private int referenciaMueble;
     private int oferta;
     
@@ -21,10 +21,10 @@ public class Oferta
     {
     
     }
-    public Oferta(int idOferta,String ofertante,int referenciaMueble,int oferta)
+    public Oferta(int idOferta,String loginUsuarioOfertante,int referenciaMueble,int oferta)
     {
         this.idOferta = idOferta;
-        this.ofertante = ofertante;
+        this.loginUsuarioOfertante = loginUsuarioOfertante;
         this.referenciaMueble = referenciaMueble;
         this.oferta = oferta;
     }
@@ -37,12 +37,12 @@ public class Oferta
         this.idOferta = idOferta;
     }
 
-    public String getOfertante() {
-        return ofertante;
+    public String getLoginUsuarioOfertante() {
+        return loginUsuarioOfertante;
     }
 
-    public void setOfertante(String ofertante) {
-        this.ofertante = ofertante;
+    public void setLoginUsuarioOfertante(String loginUsuarioOfertante) {
+        this.loginUsuarioOfertante = loginUsuarioOfertante;
     }
 
     public int getReferenciaMueble() {

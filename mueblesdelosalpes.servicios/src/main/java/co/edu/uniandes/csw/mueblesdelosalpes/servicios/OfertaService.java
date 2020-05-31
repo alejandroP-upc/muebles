@@ -24,7 +24,7 @@ import javax.ws.rs.core.MediaType;
  * @author USUARIO
  */
 
-@Path("/Oferta")
+@Path("/oferta")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -38,18 +38,15 @@ public class OfertaService
 
     @POST
     @Path("ofertas/")
-    public List<Oferta>  agregarOfertas(Oferta oferta) throws OperacionInvalidaException  
+    public List<Oferta>  ofertas(Oferta oferta) throws OperacionInvalidaException  
     {
         ofertaEjb.agregarOferta(oferta);
         return ofertaEjb.darOferta();
- 
     }
     @GET
-    @Path("catalogoOfertas/")
-    public List<Oferta> getTodasLasOfertas() 
-    {
-       // System.err.println("Holamundo");
-                
+    @Path("ofertas/")
+    public List<Oferta> ofertas() 
+    {           
         return ofertaEjb.darOferta();
  
     }
